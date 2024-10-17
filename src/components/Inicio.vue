@@ -26,7 +26,11 @@
       <div class="description-section">
         <h2>Sipnosis</h2>
         <p>
-          Situado en lugares privilegiados, el JW Marriott ofrece comodidades de primera clase, incluyendo restaurantes gourmet, spas de lujo, gimnasio, y actividades recreativas. Con un enfoque en el bienestar de sus huéspedes, cada visita promete ser una escapada memorable, y <router-link to="/servicios">otros</router-link>.
+          El JW Marriott ofrece una experiencia de lujo con una amplia variedad de servicios diseñados para tu comodidad y bienestar. Relájate y disfruta de nuestra piscina de última generación, sumérgete en la tranquilidad de nuestro sauna, o date un merecido descanso en el jacuzzi. Además, contamos con un spa exclusivo que ofrece tratamientos rejuvenecedores y una atención personalizada para revitalizar cuerpo y mente.
+
+          Entre otros servicios, el JW Marriott se destaca por su restaurante gourmet, gimnasio de alta gama y actividades recreativas pensadas para brindarte una estancia inolvidable.
+
+          Para más información, haz clic <router-link to="/servicios">aquí</router-link>.
         </p>
       </div>
     </div>
@@ -114,7 +118,7 @@ const closeCard = () => {
 .floating-card {
   position: absolute;
   top: 35%;
-  left: 50%;
+  left: 15%; 
   transform: translate(-50%, -75%);
   width: 350px;
   height: auto;
@@ -145,8 +149,8 @@ const closeCard = () => {
 .horizontal-card {
   position: absolute;
   bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
+  right: 30%;
+  transform: translateX(50%);
   display: flex;
   background-color: rgba(52, 58, 64, 0.8);
   border: 2px solid #6c757d;
@@ -175,11 +179,14 @@ const closeCard = () => {
   padding-left: 15px;
 }
 
-.description-section h2 
-.description-section p { 
- margin-top: 0;
+.description-section h2 {
+  margin: 0 0 10px 0; 
+}
+
+.description-section p {
+  font-size: 1rem;
+  line-height: 1.5; 
   color: #f8f9fa;
   font-family: 'Georgia', serif;
 }
-
 </style>
