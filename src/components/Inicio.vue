@@ -227,3 +227,4 @@ const closeCard = () => {
   font-family: 'Georgia', serif;
 }
 </style>
+
