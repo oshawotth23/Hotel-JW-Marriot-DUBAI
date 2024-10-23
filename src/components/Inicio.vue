@@ -9,7 +9,8 @@
       :class="{ 'visible': index === currentImage }"
     />
     <div class="invisible-div"></div>
-    <div v-if="showCard" class="floating-card show" @click="closeCard">
+
+    <div class="fixed-card">
       <h2>Historia del JW Marriott</h2>
       <p>
         El JW Marriott es un símbolo de lujo y confort en la hospitalidad moderna. Desde su inauguración, ha ofrecido un servicio excepcional y un ambiente elegante que atrae a viajeros de todo el mundo. Cada hotel JW Marriott es único, reflejando la cultura local y proporcionando experiencias inolvidables.
@@ -35,7 +36,7 @@
         </div>
       </div>
 
-      <div class="horizontal-card fixed-card">
+      <div class="horizontal-card">
         <div class="image-section">
           <img
             :src="activityImages[currentActivityImage]"
@@ -86,7 +87,6 @@ const activityImages = [
 const currentImage = ref(0);
 const currentHorizontalImage = ref(0);
 const currentActivityImage = ref(0);
-const showCard = ref(false);
 
 const changeImage = () => {
   currentImage.value = (currentImage.value + 1) % images.length;
@@ -104,21 +104,15 @@ onMounted(() => {
   setInterval(changeImage, 3000);
   setInterval(changeHorizontalImage, 4000);
   setInterval(changeActivityImage, 5000);
-  setTimeout(() => {
-    showCard.value = true;
-  }, 2000);
 });
 
-const closeCard = () => {
-  showCard.value = false;
-};
 </script>
 
 <style>
 .carousel-container {
   position: relative;
   width: 100%;
-  height: 90vh;
+  height: 120vh; 
   overflow: hidden;
 }
 
@@ -148,11 +142,10 @@ const closeCard = () => {
   z-index: 999;
 }
 
-.floating-card {
+.fixed-card {
   position: absolute;
-  top: 35%;
-  left: 15%; 
-  transform: translate(-50%, -75%);
+  top: 10%;
+  left: 5%;
   width: 350px;
   max-height: 500px;
   padding: 15px;
@@ -160,20 +153,12 @@ const closeCard = () => {
   border: 2px solid #6c757d;
   border-radius: 10px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
-  opacity: 0;
-  transition: opacity 0.5s ease-in, transform 0.5s cubic-bezier(0.25, 1.5, 0.5, 1);
+  font-size: 1.2em;
   z-index: 1000;
 }
 
-.floating-card.show {
-  opacity: 1;
-  background-color: rgba(52, 58, 64, 0.8);
-  transform: translate(-50%, -50%) translateY(0);
-  font-size: 1.3em;
-}
-
-.floating-card h2,
-.floating-card p {
+.fixed-card h2,
+.fixed-card p {
   color: #f8f9fa;
   margin: 5px 0;
   font-family: 'Georgia', serif;
@@ -225,6 +210,35 @@ const closeCard = () => {
   line-height: 1.5; 
   color: #f8f9fa;
   font-family: 'Georgia', serif;
+}
+
+.extra-content {
+  padding: 20px;
+  background-color: rgba(52, 58, 64, 0.8);
+  color: #f8f9fa;
+  margin-top: 20px;
+}
+
+@media (max-width: 1390px) {
+  .fixed-card {
+    top: 10%; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    width: 350px; 
+    font-size: 1.2em;
+  }
+
+  .cards-container {
+    top: 50%; 
+    right: 10%;
+  }
+  .carousel-container {
+  position: relative;
+  width: 100%;
+  height: 200vh;
+  overflow: hidden;
+}
+
 }
 </style>
 
